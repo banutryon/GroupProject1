@@ -52,7 +52,7 @@ class App extends React.Component {
   render = () => {
     return (
       <div>
-      <h2>own a piece of your favorite movie</h2>
+      <h2>Own a piece from your favorite movie</h2>
       {/* create form  */}
       <details className="view create">
       <summary>Add new Prop</summary>
