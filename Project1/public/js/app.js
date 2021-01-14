@@ -48,25 +48,25 @@ class App extends React.Component {
         <input
         type='text'
         id='name'
-        onChange={this.handelChange} />
+        onChange={this.handleChange} />
         <br />
         <label htmlFor="image">Image</label>
         <input
         type='text'
         id='image'
-        onChange={this.handelChange} />
+        onChange={this.handleChange} />
         <br />
         <label htmlFor="movie">Movie</label>
         <input
         type='text'
         id='movie'
-        onChange={this.handelChange} />
+        onChange={this.handleChange} />
         <br />
         <label htmlFor="price">Price</label>
         <input
         type='text'
         id='price'
-        onChange={this.handelChange} />
+        onChange={this.handleChange} />
         <br />
         <input className="myButton" type="submit" value="Create Prop" />
       </form>
