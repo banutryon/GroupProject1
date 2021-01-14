@@ -54,7 +54,8 @@ class App extends React.Component {
       <div>
       <h2>own a piece of your favorite movie</h2>
       {/* create form  */}
-      <details className="create">
+      <details className="view create">
+      <summary>Add new Prop</summary>
       <form onSubmit={this.handleSubmit}>
         <label htmlFor="name">Name</label>
         <input
