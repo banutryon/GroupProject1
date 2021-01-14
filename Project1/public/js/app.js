@@ -37,6 +37,14 @@ class App extends React.Component {
     })
   }
 
+  componentDidMount = () => {
+    axios.get('/MoviePropStore').then(response => {
+      this.setState({
+        props: response.data
+      })
+    })
+  }
+
   render = () => {
     return (
       <div>
