@@ -1,9 +1,9 @@
 class App extends React.Component {
   state = {
-    name: '',
-    image: '',
-    movie: '',
-    price: '',
+    name: "",
+    image: "",
+    movie: "",
+    price: "",
     props: []
   }
   handleChange = (event) => {
@@ -12,7 +12,7 @@ class App extends React.Component {
   handleSubmit = (event) => {
     event.prevetDefault()
     event.target.reset()
-    axios.post('/moviepropstore', this.state).then(response => this.setState({ props: response.data, name: '', image: '', movie: '', price: ''})
+    axios.post('/moviepropstore', this.state).then(response => this.setState({ props: response.data, name: "", image: "", movie: "", price: ""})
   )
 }
   deleteProp = (event) => {
@@ -38,7 +38,7 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    axios.get('/MoviePropStore').then(response => {
+    axios.get("/moviepropstore").then(response => {
       this.setState({
         props: response.data
       })
@@ -83,7 +83,7 @@ class App extends React.Component {
     <ul>
       {this.state.props.map((prop) => {
         return (
-          <li key={prop.id}>
+          <li key={prop._id}>
           <span>
           <h2 className="propsName">{prop.name}</h2>
           <details className='view'>
