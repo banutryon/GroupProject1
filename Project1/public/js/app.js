@@ -1,22 +1,24 @@
 class App extends React.Component {
   state = {
-    name: '',
-    image: '',
-    movie: '',
-    price: '',
+    name: "",
+    image: "",
+    movie: "",
+    price: "",
     props: []
   }
   handleChange = (event) => {
     this.setState({ [event.target.id]: event.target.value })
   }
   handleSubmit = (event) => {
-    event.prevetDefault()
+    event.preventDefault()
     event.target.reset()
-    axios.post('/moviepropstore', this.state).then(response => this.setState({ props: response.data, name: '', image: '', movie: '', price: ''})
+
+    axios.post('/moviepropstore', this.state).then(response => this.setState({ props: response.data, name: "", image: "", movie: "", price: ""})
+
   )
 }
   deleteProp = (event) => {
-    axios.delete('/moviepropstore' + event.target.value).then(response => {
+    axios.delete('/moviepropstore/' + event.target.value).then(response => {
       this.setState({
         props: response.data
       })
@@ -37,6 +39,16 @@ class App extends React.Component {
     })
   }
 
+  componentDidMount = () => {
+
+    axios.get("/moviepropstore").then(response => {
+
+      this.setState({
+        props: response.data
+      })
+    })
+  }
+
   render = () => {
     return (
       <div>
@@ -48,25 +60,25 @@ class App extends React.Component {
         <input
         type='text'
         id='name'
-        onChange={this.handelChange} />
+        onChange={this.handleChange} />
         <br />
         <label htmlFor="image">Image</label>
         <input
         type='text'
         id='image'
-        onChange={this.handelChange} />
+        onChange={this.handleChange} />
         <br />
         <label htmlFor="movie">Movie</label>
         <input
         type='text'
         id='movie'
-        onChange={this.handelChange} />
+        onChange={this.handleChange} />
         <br />
         <label htmlFor="price">Price</label>
         <input
         type='text'
         id='price'
-        onChange={this.handelChange} />
+        onChange={this.handleChange} />
         <br />
         <input className="myButton" type="submit" value="Create Prop" />
       </form>
@@ -75,7 +87,7 @@ class App extends React.Component {
     <ul>
       {this.state.props.map((prop) => {
         return (
-          <li key={prop.id}>
+          <li key={prop._id}>
           <span>
           <h2 className="propsName">{prop.name}</h2>
           <details className='view'>
